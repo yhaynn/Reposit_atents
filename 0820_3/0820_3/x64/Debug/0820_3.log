@@ -1,0 +1,10 @@
+﻿  0820_3.cpp
+D:\Github Repositery\Reposit_atents\0820_3\0820_3\0820_3.cpp(87,10): error C2661: 'Stock::Stock': 오버로드된 함수에서 5개의 인수를 사용하지 않습니다.
+  0820_3_2.cpp
+D:\Github Repositery\Reposit_atents\0820_3\0820_3\0820_3_2.cpp(44,11): error C2661: 'Animal::Animal': 오버로드된 함수에서 4개의 인수를 사용하지 않습니다.
+D:\Github Repositery\Reposit_atents\0820_3\0820_3\0820_3_2.cpp(50,11): error C2661: 'Animal::Animal': 오버로드된 함수에서 4개의 인수를 사용하지 않습니다.
+D:\Github Repositery\Reposit_atents\0820_3\0820_3\0820_3_2.cpp(56,11): error C2661: 'Animal::Animal': 오버로드된 함수에서 4개의 인수를 사용하지 않습니다.
+D:\Github Repositery\Reposit_atents\0820_3\0820_3\0820_3_2.cpp(62,66): error C2661: 'Chicken::Chicken': 오버로드된 함수에서 5개의 인수를 사용하지 않습니다.
+D:\Github Repositery\Reposit_atents\0820_3\0820_3\0820_3_2.cpp(63,59): error C2661: 'Chicken::Chicken': 오버로드된 함수에서 5개의 인수를 사용하지 않습니다.
+  0820_3_3.cpp
+  코드를 생성하고 있습니다...
