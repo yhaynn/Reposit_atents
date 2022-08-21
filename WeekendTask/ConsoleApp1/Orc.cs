@@ -50,22 +50,22 @@ namespace ConsoleApp1
 
         public override void TakeDamage(int damage)  //일정 확률로 오크는 인내수치 만큼 데미지를 감소 시킨다.
         {
-            
+            //int strenght=damage;
 
             if (rand.NextDouble() < 0.3f)
             
                 if (endurance > damage)
                 {
                     HP -= damage / 2;
-                    Console.WriteLine($"2-1[{Name}]은 공격을 버텼습니다. {damage / 2}만큼 피해를 감소시켰습니다.");
+                    Console.WriteLine($"[{Name}]은 공격을 버텼습니다. {damage / 2}만큼 피해를 감소시켰습니다.");
                 }
-                if (endurance <= damage)
+                else 
                 {
                     HP -= damage;
-                    //Console.WriteLine($"2[{Name}]은/는 {damage}만큼의 피해를 입었습니다.");
+                    Console.WriteLine($"2[{Name}]은/는 {damage}만큼의 피해를 입었습니다.");
 
                 }
-                
+            
 
 
 

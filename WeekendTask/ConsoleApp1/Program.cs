@@ -38,11 +38,7 @@ namespace ConsoleApp1
                 
                 Turn_Fight(human1, orc1);
                
-                //if (human1.HP > 0)
-                //{
-
-                //    return;
-                //}
+                
 
                 if (human1.HP < 1 || orc1.HP < 1)
                 {
@@ -73,10 +69,10 @@ namespace ConsoleApp1
             orc1.TestPrintStatus();     //오크 상태창
 
             Console.WriteLine("\n─────턴 종료─────\n");
+            
         }
 
         
     }
 
-    
 }

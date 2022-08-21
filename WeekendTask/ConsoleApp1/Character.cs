@@ -163,22 +163,19 @@ namespace ConsoleApp1
         {
             int damage = strength;
 
-            
-            //rand.NextDouble(); //0.1~1.0
-
-
             if (rand.NextDouble() < 0.3f)
             {
                 damage *= 2; //damage=damage*2
                 Console.WriteLine($"*크리티컬 히트");
                 //target.TakeDamage(damage);
             }
-           
-            Console.WriteLine($"[{name}]이/가 [{target.Name}]에게 공격을 합니다.(공격력 : {damage})\n[{target.Name}]은/는 {damage}만큼 피해를 입었습니다.");
-            
-            target.TakeDamage(damage);
-
-
+           else
+                {
+                    HP -= damage;
+                    //Console.WriteLine($"1[{name}]은/는 {damage}만큼의 피해를 입었습니다.");
+                }
+                Console.WriteLine($"[{name}]이/가 [{target.Name}]에게 공격을 합니다.(공격력 : {damage})\n[{target.Name}]은/는 {damage}만큼 피해를 입었습니다.");
+                target.TakeDamage(damage);
         }
 
 
@@ -196,6 +193,7 @@ namespace ConsoleApp1
         {
             HP -= damage;
             //Console.WriteLine($"[{Name}]은/는 {damage}만큼의 피해를 입었습니다.");
+
         }
         
 

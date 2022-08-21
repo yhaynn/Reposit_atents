@@ -59,6 +59,10 @@ namespace ConsoleApp1
                             //target.TakeDamage(damage);
                         }
 
+                        else
+                        {
+                            HP -= damage;
+                        }
                         Console.WriteLine($"[{name}]이/가 [{target.Name}]에게 공격을 합니다.(공격력 : {damage})\n[{target.Name}]은/는 {damage}만큼 피해를 입었습니다.");
 
                         target.TakeDamage(damage);
@@ -90,16 +94,16 @@ namespace ConsoleApp1
                 if (agility > damage)
                 {
                     HP -= damage /4;
-                    Console.WriteLine($"1-2[{name}]은 공격을 회피하여 {damage /4}만큼의 피해로 빗맞았습니다.");
+                    Console.WriteLine($"11[{name}]은 공격을 회피하여 {damage /4}만큼의 피해로 빗맞았습니다.");
+                
                     
                 }
 
-                if (agility <= damage)
+                else
                 {
                     HP -= damage;
-                    //Console.WriteLine($"1[{name}]은/는 {damage}만큼의 피해를 입었습니다.");
+                    Console.WriteLine($"1[{name}]은/는 {damage}만큼의 피해를 입었습니다.");
                 }
-
 
         }
 
