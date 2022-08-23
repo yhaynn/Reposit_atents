@@ -31,12 +31,13 @@ namespace ConsoleApp1
         protected int strength;
         protected int intelligence;
         protected int agility;
-        protected int endurance;
+        
         protected string name;
         protected int mp;
         protected int maxMp;
 
-
+        const int DefenseCount = 3;
+        int remainsDefenseCount = 0;
 
         public string Name => name;
 
@@ -45,11 +46,11 @@ namespace ConsoleApp1
         // intArray = new int[5]; //인티저를 5개 가질 수 있도록 생성
 
 
-        string[] nameArray = { "플레이어", "동료", "소환수", "용병", "보스" }; //nameArray에 기본값 설정(선언과 동시에 할당)
+        //string[] nameArray = { "플레이어1", "플레이어2", "플레이어3", "플레이어4", "플레이어5" }; //nameArray에 기본값 설정(선언과 동시에 할당)
         protected Random rand;
 
 
-        public int HP
+        public int HP  //HP는 프로퍼티 라고 한다
         {
             get
             {
@@ -103,18 +104,19 @@ namespace ConsoleApp1
             }
         }
 
+
         public Character()
         {
-            Console.WriteLine($"{name}");
+            //Console.WriteLine($"{name}");
             rand = new Random(DateTime.Now.Millisecond);
             int randomNumber = rand.Next();
-            randomNumber %= 5;                  //randomNumber = randomNumber % 5;
-            name = nameArray[randomNumber];    //랜덤, 모듈레이터
+            //randomNumber %= 5;                  //randomNumber = randomNumber % 5;
+            //name = nameArray[randomNumber];    //랜덤, 모듈레이터
 
-            Generate_Stat();
-            TestPrintStatus();
-            //Random rand2 = new Random();
-            //rand2 = new Random();
+            Random rand2 = new Random();
+            rand2 = new Random();
+            Generate_Stat();  //스테이터스 생성
+            TestPrintStatus();  //스테이터스 출력
 
             
         }
@@ -126,59 +128,55 @@ namespace ConsoleApp1
             //Console.WriteLine($"{newName2}");
             name = newName2;
 
-            Generate_Stat();
-            TestPrintStatus();
+            //Generate_Stat();
+            //TestPrintStatus();
         }
 
 
         public virtual void Generate_Stat()
         {
-            //hp
+            //hp 랜덤
             maxHp = rand.Next(100, 201);
             hp = maxHp;
 
-            //stat
+            //stat 랜덤
 
             strength = rand.Next(20) + 1;
-            
-            
-            
-        }
+            intelligence = rand.Next(20) + 1;
+            strength = rand.Next(20) + 1;
+            stamina = rand.Next(20) + 1;
 
 
-      
-        
-        public virtual void TestPrintStatus()
-        {
-            Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━┓");
-            Console.WriteLine($"┃이름\t:\t{name}");
-            Console.WriteLine($"┃HP\t:\t{hp}/{maxHp}");
-            Console.WriteLine($"┃힘\t:\t{strength}");
-            Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━┛");
 
-        }
+        }  
+
+                
 
 
         public virtual void Attack(Character target)
         {
             int damage = strength;
 
-            if (rand.NextDouble() < 0.3f)
+            if (rand.NextDouble() < 0.3f)           //크리티컬..이 확률이라면 크리티컬이 발동한다. 굳이 else if 필요 없는 상황
             {
-                damage *= 2; //damage=damage*2
+                damage *= 2; 
                 Console.WriteLine($"*크리티컬 히트");
-                //target.TakeDamage(damage);
             }
-           else
-                {
-                    HP -= damage;
-                    //Console.WriteLine($"1[{name}]은/는 {damage}만큼의 피해를 입었습니다.");
-                }
-                Console.WriteLine($"[{name}]이/가 [{target.Name}]에게 공격을 합니다.(공격력 : {damage})\n[{target.Name}]은/는 {damage}만큼 피해를 입었습니다.");
-                target.TakeDamage(damage);
+
+          
+               
+                target.TakeDamage(damage);  ////타켓 확인 잘하자
+                Console.WriteLine($"[{name}]이/가 [{target.Name}]에게 공격을 합니다.(공격력 : {damage})\n[5{target.Name}]은/는 {damage}만큼 피해를 입었습니다.");
+            
+
+            
         }
 
-
+        public virtual void Defense()
+        {
+            Console.WriteLine($"3턴간 받는 데미지 반감");
+            remainsDefenseCount += DefenseCount;
+        }
         //public virtual void Attack(Character target)
         //{
         //    int damage = strength;
@@ -192,10 +190,19 @@ namespace ConsoleApp1
         public virtual void TakeDamage(int damage)
         {
             HP -= damage;
-            //Console.WriteLine($"[{Name}]은/는 {damage}만큼의 피해를 입었습니다.");
-
+            //Console.WriteLine($"2[{name}]은/는 {damage}만큼의 피해를 입었습니다.");
+            
         }
         
+        public virtual void TestPrintStatus()  //Char 스텟창
+        {
+            Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━┓");
+            Console.WriteLine($"┃이름\t:\t{name}");
+            Console.WriteLine($"┃HP\t:\t{hp}/{maxHp}");
+            Console.WriteLine($"┃힘\t:\t{strength}");
+            Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━┛");
+
+        }
 
 
 
